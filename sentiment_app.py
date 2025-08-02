@@ -5,8 +5,11 @@ import re
 from openai import OpenAI
 
 # ─── Configuration ───
-api_key = st.sidebar.text_input("OpenAI API Key", type="password")
-client = OpenAI(api_key=api_key)
+#api_key = st.sidebar.text_input("OpenAI API Key", type="password")
+#client = OpenAI(api_key=api_key)
+api_key = st.secrets["OPENAI_API_KEY"]
+client  = OpenAI(api_key=api_key)
+
 MODEL = "gpt-4"  # or gpt-4-turbo, gpt-3.5-turbo
 
 st.title("Community Clinic Feedback Sentiment Analysis")
