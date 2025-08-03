@@ -6,6 +6,22 @@ from openai import OpenAI
 import plotly.express as px
 
 # ─── Configuration ───
+MAINTENANCE_MODE = True  # Set to False when ready for demo
+
+if MAINTENANCE_MODE:
+    st.title("🔧 Community Clinic Feedback Sentiment Analysis - Maintenance Mode")
+    st.warning("**System is currently in maintenance mode**")
+    st.info("The application is being prepared for demonstration. Please check back later.")
+    st.markdown("""
+    **Features available when active:**
+    - Upload and analyze clinic feedback comments
+    - Sentiment analysis (Positive, Neutral, Negative)
+    - Theme extraction from feedback
+    - Interactive visualizations
+    - Download analysis results
+    """)
+    st.stop()
+
 API_KEY = st.secrets.get("OPENAI_API_KEY")
 client  = OpenAI(api_key=API_KEY)
 MODEL    = "gpt-4"  # or gpt-4-turbo, gpt-3.5-turbo
